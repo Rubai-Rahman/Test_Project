@@ -6,7 +6,7 @@ import { LogOutPage } from "../pages/logout";
 test.beforeEach(async ({ page }) => {
   const Login = new LoginPage(page);
   await Login.gotoLoginPage();
-  await Login.login("rubairahman1@gmail.com", "#Amirbikeyy22");
+  await Login.login("rubairahman1@gmail.com", "Password");
   await expect(page).toHaveURL("https://dewan.up.railway.app/dashboard");
 });
 
