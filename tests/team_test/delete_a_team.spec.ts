@@ -6,8 +6,8 @@ import { LogOutPage } from "../../pages/logout";
 test.beforeEach(async ({ page }) => {
   const Login = new LoginPage(page);
   await Login.gotoLoginPage();
-  await Login.login("rubairahman1@gmail.com", "password");
-  await expect(page).toHaveURL("https://dewan.up.railway.app/dashboard");
+  await Login.login("thawab@alt.sa.com", "Thawab@123");
+  await expect(page).toHaveURL("https://devs.fluent.sh/dashboard");
 });
 
 //logout
@@ -22,11 +22,9 @@ test("runs in parallel 2", async ({ page }) => {
   await page.getByRole("button", { name: "Team" }).click();
   await page.getByRole("link", { name: "Teams" }).click();
   await page
-    .getByRole("row", {
-      name: "PlaywrightTest",
-    })
-    .getByRole("button")
-    .nth(1)
+    .locator(
+      '//*[@id="__next"]/div[1]/div/div/section/section/div[2]/div/table/tbody/tr[2]/td[6]/div/button[2]'
+    )
     .click();
   await page
     .getByPlaceholder("Please type PlaywrightTest to confirm")

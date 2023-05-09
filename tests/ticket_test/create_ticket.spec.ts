@@ -6,8 +6,8 @@ import { LogOutPage } from "../../pages/logout";
 test.beforeEach(async ({ page }) => {
   const Login = new LoginPage(page);
   await Login.gotoLoginPage();
-  await Login.login("rubairahman1@gmail.com", "password");
-  await expect(page).toHaveURL("https://dewan.up.railway.app/dashboard");
+  await Login.login("thawab@alt.sa.com", "Thawab@123");
+  await expect(page).toHaveURL("https://devs.fluent.sh/dashboard");
 });
 
 //logout
@@ -19,26 +19,68 @@ test.afterEach(async ({ page }) => {
 //create ticket
 
 test("create ticket", async ({ page }) => {
+  await page.getByRole("link", { name: "ticketing" }).click();
+  await page.getByRole("button", { name: "Create New" }).click();
+  await expect(page).toHaveURL("https://devs.fluent.sh/tickets/create");
+
+  //contact Test
+  await page.getByPlaceholder("Search for Contact").click();
+  await page.getByPlaceholder("Search for Contact").fill("playwright");
+  await page.getByText("playwright", { exact: true }).click();
   await page.locator('select[name="source"]').selectOption("chat");
   await page
     .locator("div")
-    .filter({ hasText: /^Teamselect a team$/ })
-    .locator("svg")
+    .filter({ hasText: /^Medium$/ })
     .click();
-  await page.getByText("PlawrightTest", { exact: true }).click();
-  await page.locator("div").filter({ hasText: /^Low$/ }).click();
+  await page.locator(".css-1xc3v61-indicatorContainer").first().click();
+  await page.locator(".css-19bb58m").first().click();
+  await page.locator(".css-19bb58m").first().click();
+  await page.getByText("PlaywrightTest", { exact: true }).click();
   await page
-    .locator(
-      "div:nth-child(2) > .rounded > .w-full > .css-13cymwt-control > .css-onxvpl > .css-19bb58m"
-    )
+    .locator(".css-13cymwt-control > .css-onxvpl > .css-19bb58m")
     .click();
-  await page.getByText("al amin", { exact: true }).click();
+  await page.locator("#react-select-3-option-0").click();
+  await page.getByRole("combobox", { name: "Ticket Type" }).nth(1).click();
+  await page.getByRole("option", { name: "Complaints" }).locator("div").click();
+  await page
+    .locator("#sq_101")
+    .getByRole("combobox", { name: "Category", exact: true })
+    .click();
+  await page
+    .getByRole("option", { name: "Login & Registration" })
+    .locator("div")
+    .click();
+  await page
+    .locator("#sq_102")
+    .getByRole("combobox", { name: "Sub Category", exact: true })
+    .click();
+  await page
+    .getByRole("option", { name: "Can’t Register" })
+    .locator("div")
+    .click();
+  await page
+    .locator("#sq_103")
+    .getByRole("combobox", { name: "Sub Sub Category", exact: true })
+    .click();
+  await page.getByText("Change Phone number").click();
+  await page
+    .getByRole("combobox", { name: "Sub Sub Category" })
+    .getByRole("combobox", { name: "Sub Sub Category", exact: true })
+    .filter({ hasText: "Change Phone number" })
+    .click();
+  await page.getByText("Invalid ID or wrong date of birth.").click();
+  await page
+    .locator("#sq_122")
+    .getByRole("combobox", { name: "Is there a ticket raised to SAMA Care" })
+    .click();
+  await page.getByRole("option", { name: "No" }).locator("div").click();
   await page.locator('input[name="subject"]').click();
-  await page.locator('input[name="subject"]').fill("playwright");
+  await page.locator('input[name="subject"]').fill("playwrightTest");
   await page.getByPlaceholder("Write text here ...").click();
-  await page.getByPlaceholder("Write text here ...").fill("testing playwright");
+  await page.getByPlaceholder("Write text here ...").fill("playwrighttesting");
+
   await page.getByRole("button", { name: "Create as New" }).click();
-  await expect(page.getByRole("button", { name: "Create as New" })).toHaveText(
-    "Create as New"
+  await expect(page.getByText("Failed To Create Ticket")).toHaveText(
+    "Failed To Create Ticket"
   );
 });

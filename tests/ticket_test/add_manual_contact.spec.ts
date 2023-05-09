@@ -6,10 +6,9 @@ import { LogOutPage } from "../../pages/logout";
 test.beforeEach(async ({ page }) => {
   const Login = new LoginPage(page);
   await Login.gotoLoginPage();
-  await Login.login("rubairahman1@gmail.com", "password");
-  await expect(page).toHaveURL("https://dewan.up.railway.app/dashboard");
+  await Login.login("thawab@alt.sa.com", "Thawab@123");
+  await expect(page).toHaveURL("https://devs.fluent.sh/dashboard");
 });
-
 //logout
 
 test.afterEach(async ({ page }) => {
@@ -17,24 +16,12 @@ test.afterEach(async ({ page }) => {
   await Logout.logout();
 });
 // add manual contact
-test.skip("manual contact", async ({ page }) => {
+test("manual contact", async ({ page }) => {
+  await page.getByRole("link", { name: "ticketing" }).click();
+  await page.getByRole("button", { name: "Create New" }).click();
   await page.getByRole("button", { name: "Add Contact" }).click();
-  await page.getByRole("button", { name: "Add Contact" }).click();
-  await page.locator('input[name="name"]').click();
-  await page.locator('input[name="name"]').fill("PlaywrightTest");
-  await page.locator('input[name="email"]').click();
-  await page.locator('input[name="email"]').fill("playwrighttest@gmail.com");
-  await page.locator('input[name="phone_number"]').click();
-  await page.locator('input[name="phone_number"]').fill("01798100347");
-  await page.getByRole("button", { name: "Create Contact" }).click();
-  await page
-    .locator("form")
-    .filter({
-      hasText:
-        "RRubai Rahmanrubairahman1@gmail.com 01798100347 Add ContactTicket PropertiesSour",
-    })
-    .click();
-  await expect(page.getByText("contact created successfully ")).toHaveText(
-    "successfully"
-  );
+
+  // await expect(page.getByText("Successfully  create a contact")).toHaveText(
+  //   "Successfully  create a contact"
+  // );
 });

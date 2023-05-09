@@ -6,8 +6,8 @@ import { LogOutPage } from "../../pages/logout";
 test.beforeEach(async ({ page }) => {
   const Login = new LoginPage(page);
   await Login.gotoLoginPage();
-  await Login.login("rubairahman1@gmail.com", "password");
-  await expect(page).toHaveURL("https://dewan.up.railway.app/dashboard");
+  await Login.login("thawab@alt.sa.com", "Thawab@123");
+  await expect(page).toHaveURL("https://devs.fluent.sh/dashboard");
 });
 
 //logout
@@ -35,11 +35,11 @@ test("Add Agent", async ({ page }) => {
     .fill("playwright@gmail.com");
 
   await page.getByRole("button", { name: "Add" }).click();
-  // await expect(page.getByText("Agent added successfully")).toHaveText(
-  //   "Agent added successfully"
-  // );
-  //expect for existing user
-  await expect(page.getByText("Agent already added!")).toHaveText(
-    "Agent already added!"
+  await expect(page.getByText("Agent added successfully")).toHaveText(
+    "Agent added successfully"
   );
+  //expect for existing user
+  // await expect(page.getByText("Agent already added!")).toHaveText(
+  //   "Agent already added!"
+  // );
 });

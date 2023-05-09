@@ -6,8 +6,8 @@ import { LogOutPage } from "../../pages/logout";
 test.beforeEach(async ({ page }) => {
   const Login = new LoginPage(page);
   await Login.gotoLoginPage();
-  await Login.login("rubairahman1@gmail.com", "password");
-  await expect(page).toHaveURL("https://dewan.up.railway.app/dashboard");
+  await Login.login("thawab@alt.sa.com", "Thawab@123");
+  await expect(page).toHaveURL("https://devs.fluent.sh/dashboard");
 });
 
 //logout
@@ -24,7 +24,7 @@ test("status", async ({ page }) => {
   await page.getByRole("link", { name: "Teams" }).click();
   await page
     .getByRole("row", {
-      name: "PlaywrightTest testing Playwright 2 - Use setting",
+      name: "PlaywrightTest testingPlaywright 1 - Use setting",
     })
     .getByRole("switch", { name: "Use setting" })
     .click();

@@ -6,8 +6,8 @@ import { LogOutPage } from "../../pages/logout";
 test.beforeEach(async ({ page }) => {
   const Login = new LoginPage(page);
   await Login.gotoLoginPage();
-  await Login.login("rubairahman1@gmail.com", "password");
-  await expect(page).toHaveURL("https://dewan.up.railway.app/dashboard");
+  await Login.login("thawab@alt.sa.com", "Thawab@123");
+  await expect(page).toHaveURL("https://devs.fluent.sh/dashboard");
 });
 
 //logout
@@ -21,19 +21,16 @@ test.afterEach(async ({ page }) => {
 test("cross button test", async ({ page }) => {
   await page.getByRole("link", { name: "ticketing" }).click();
   await page.getByRole("button", { name: "Create New" }).click();
-  await expect(page).toHaveURL("https://dewan.up.railway.app/tickets/create");
+  await expect(page).toHaveURL("https://devs.fluent.sh/tickets/create");
 
   //contact Test
-  await page.getByPlaceholder("Search for Contact").fill("rubairahman");
-  await expect(page.getByText("rubairahman1@gmail.com")).toHaveText(
-    "rubairahman1@gmail.com"
-  );
-  await page.getByText("Rubai Rahmanrubairahman1@gmail.com01798100347").click();
+  await page.getByPlaceholder("Search for Contact").fill("Ammar");
+  await expect(page.getByText("amar@gmail.sa")).toHaveText("amar@gmail.sa");
+  await page.getByText("amar@gmail.sa").click();
   await page
     .locator("form")
     .filter({
-      hasText:
-        "RRubai Rahmanrubairahman1@gmail.com 01798100347 Add ContactTicket PropertiesSour",
+      hasText: "amar@gmail.sa",
     })
     .getByRole("button")
     .nth(1)

@@ -5,7 +5,7 @@ export class LogOutPage {
 
   constructor(page: any) {
     this.page = page;
-    this.modal_button = page.getByRole("button", { name: "Open user menu R" });
+    this.modal_button = page.getByRole("button", { name: "Open user menu T" });
     this.logout_button = page.getByText("Sign out");
   }
 
