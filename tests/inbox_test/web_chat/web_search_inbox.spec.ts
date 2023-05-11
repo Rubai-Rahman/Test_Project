@@ -22,7 +22,8 @@ test("search", async ({ page }) => {
   await page.getByRole("link", { name: "Inboxes" }).click();
   await page.getByPlaceholder("Search for inbox").click();
   await page.getByPlaceholder("Search for inbox").fill("playwright");
-  await expect(page.getByText("PlaywrightTest", { exact: true })).toHaveText(
-    "PlaywrightTest"
+  await page.pause();
+  await expect(page.getByText("PlaywrightTest By Rubai")).toHaveText(
+    "PlaywrightTest By Rubai"
   );
 });

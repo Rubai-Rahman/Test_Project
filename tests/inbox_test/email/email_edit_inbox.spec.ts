@@ -20,8 +20,9 @@ test.afterEach(async ({ page }) => {
 test("edit email chat", async ({ page }) => {
   await page.getByRole("link", { name: "settings" }).click();
   await page.getByRole("link", { name: "Inboxes" }).click();
+  await page.pause();
   await page
-    .locator("tr:nth-child(5) > td:nth-child(7) > div > button")
+    .locator("tr:nth-child(6) > td:nth-child(7) > div > button")
     .first()
     .click();
   await page.getByPlaceholder("enter inbox description").click();

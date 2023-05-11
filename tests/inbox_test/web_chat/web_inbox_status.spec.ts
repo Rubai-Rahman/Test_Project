@@ -27,15 +27,10 @@ test.afterEach(async ({ page }) => {
 test("status", async ({ page }) => {
   await page.getByRole("link", { name: "settings" }).click();
   await page.getByRole("link", { name: "Inboxes" }).click();
+
   await page
     .getByRole("row", {
-      name: "PlaywrightTest testingPlaywrightEdit May 09, 2023 18 hours ago Use setting",
-    })
-    .getByRole("switch", { name: "Use setting" })
-    .click();
-  await page
-    .getByRole("row", {
-      name: "PlaywrightTest testingPlaywrightEdit May 09, 2023 18 hours ago Use setting",
+      name: "PlaywrightTest testingPlaywrightEdit May 09, 2023 20 hours ago Use setting",
     })
     .getByRole("switch", { name: "Use setting" })
     .click();
