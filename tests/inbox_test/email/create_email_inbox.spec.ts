@@ -16,12 +16,7 @@ test.afterEach(async ({ page }) => {
   const Logout = new LogOutPage(page);
   await Logout.logout();
 });
-//logout
 
-test.afterEach(async ({ page }) => {
-  const Logout = new LogOutPage(page);
-  await Logout.logout();
-});
 //create Inbox
 
 test("create email chat", async ({ page }) => {

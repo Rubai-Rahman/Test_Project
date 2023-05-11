@@ -18,10 +18,7 @@ test.afterEach(async ({ page }) => {
 });
 //logout
 
-test.afterEach(async ({ page }) => {
-  const Logout = new LogOutPage(page);
-  await Logout.logout();
-});
+
 
 //chat status change
 test("status", async ({ page }) => {
