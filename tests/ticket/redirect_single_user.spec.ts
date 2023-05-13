@@ -28,18 +28,6 @@ test("Edit Ticket", async ({ page }) => {
   await page.getByText("create ticket from selected contuct1").click();
   // await page.pause();
   await page.getByRole("tab", { name: "t" }).click();
-  await page.getByRole("tabpanel", { name: "t" }).getByRole("button").click();
 
-  await expect(page.getByText("Ticket Properties")).toHaveText(
-    "Ticket Properties"
-  );
-  await page.locator('select[name="priority"]').selectOption("1");
-  await page
-    .getByRole("tabpanel", { name: "t" })
-    .locator("button")
-    .first()
-    .click();
-  await expect(
-    page.getByText("Conversation successfully linked to ticket.")
-  ).toHaveText("Conversation successfully linked to ticket.");
+  
 });

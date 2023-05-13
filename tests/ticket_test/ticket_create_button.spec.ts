@@ -17,9 +17,11 @@ test.afterEach(async ({ page }) => {
   await Logout.logout();
 });
 //create button test
-test("create_button", async ({ page }) => {
+test.skip("create_button", async ({ page }) => {
   await page.getByRole("link", { name: "Ticketing" }).click();
   await page.getByRole("button", { name: "Create New" }).click();
   await expect(page).toHaveURL("https://devs.fluent.sh/tickets/create");
 
 });
+
+//

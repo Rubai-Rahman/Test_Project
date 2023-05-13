@@ -19,27 +19,16 @@ test.afterEach(async ({ page }) => {
   await Logout.logout();
 });
 //
-
-test("Edit Ticket", async ({ page }) => {
-  await page.getByPlaceholder("Search for Conversation").click();
+test("Send Message", async ({ page }) => {
   await page
     .getByPlaceholder("Search for Conversation")
     .fill("create ticket from selected contuct1");
   await page.getByText("create ticket from selected contuct1").click();
-  // await page.pause();
-  await page.getByRole("tab", { name: "t" }).click();
-  await page.getByRole("tabpanel", { name: "t" }).getByRole("button").click();
-
-  await expect(page.getByText("Ticket Properties")).toHaveText(
-    "Ticket Properties"
-  );
-  await page.locator('select[name="priority"]').selectOption("1");
-  await page
-    .getByRole("tabpanel", { name: "t" })
-    .locator("button")
-    .first()
-    .click();
   await expect(
-    page.getByText("Conversation successfully linked to ticket.")
-  ).toHaveText("Conversation successfully linked to ticket.");
+    page.getByText("create ticket from selected contuct1")
+  ).toHaveText("create ticket from selected contuct1");
+  await page.locator(".cursor-pointer > .h-6").click();
+  await page.locator(".cursor-pointer > .h-6").click();
+  await page.locator(".cursor-pointer > .h-6").click();
+  await page.locator(".cursor-pointer > .h-6").click();
 });
