@@ -21,6 +21,7 @@ test.afterEach(async ({ page }) => {
 //
 
 test("Edit Ticket", async ({ page }) => {
+  await page.pause();
   await page.getByPlaceholder("Search for Conversation").click();
   await page
     .getByPlaceholder("Search for Conversation")
