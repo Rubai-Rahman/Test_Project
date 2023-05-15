@@ -6,7 +6,7 @@ import { LogOutPage } from "../../pages/logout";
 test.beforeEach(async ({ page }) => {
   const Login = new LoginPage(page);
   await Login.gotoLoginPage();
-  await Login.login("thawab@alt.sa.com", "Thawab@123");
+  await Login.login("dev.habiburnobel@gmail.com", "Thawab@123");
   await expect(page).toHaveURL("https://devs.fluent.sh/dashboard");
 });
 
